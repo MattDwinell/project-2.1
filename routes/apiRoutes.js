@@ -8,10 +8,10 @@ module.exports = function(app) {
     });
 
     app.post("/api/scores", function(request, response) {
-        var user = request.body;
+       let {userName, time} = request.body;
         User.create({
-            username: user.name,
-            time: user.time
+            username: userName,
+            userTimes: time
         });
     });
 };

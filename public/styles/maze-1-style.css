@@ -9,7 +9,7 @@
 }
 #small-box{
     top: 10vw;
-    left: 20%;
+    left: 15%;
     width: 65%;
     height: 66vh;
     border: 1px solid red;
@@ -57,6 +57,21 @@
     height: 10vh;
     bottom: 20vh;
     margin-top: 30vh;
+    
+
+}
+.highscores{
+    width: 17%;
+    float:right;
+
+}
+#tags{
+    float: left;
+ 
+
+}
+#times{
+    float: right;
     
 
 }
