@@ -1,7 +1,7 @@
 var User = require("../models/users.js");
 
 module.exports = function(app) {
-    app.get("/api/users", function(request, response) {
+    app.get("/api/scores", function(request, response) {
         User.findAll({}).then(function(results) {
             response.json(results);
         });
