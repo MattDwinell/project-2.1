@@ -18,10 +18,11 @@ $(document).ready(() => {
     $("#submit").on("click", (event)=>{
         event.preventDefault();
         let userTag = $("#user-tag").val();
+        let userTime = time.toFixed(2);
         
         let highScore = {
             userName: userTag,
-            time: time
+            time: userTime
         }
         console.log(highScore);
         $("#win-box").css("visibility", "hidden");
@@ -29,8 +30,10 @@ $(document).ready(() => {
             console.log(status);
             console.log('data from post: ');
             console.log(data);
-            console.log( data.charName);
     
+        }).then(()=>{
+            time = 0;
+
         })
         
     })
@@ -54,6 +57,7 @@ $(document).ready(() => {
     function timer(){
         if(!gamePause && start){
         time += .1;
+        $("#timer").text(time.toFixed(2));
         }
     }
 

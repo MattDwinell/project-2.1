@@ -4,7 +4,7 @@ var sequelize = require("../config/connection.js");
 
 var User = sequelize.define("user", {
     username: Sequelize.STRING,
-    userTimes: Sequelize.TIME
+    userTimes: Sequelize.FLOAT
 });
 
 User.sync();
