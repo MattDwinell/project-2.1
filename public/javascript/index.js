@@ -1,4 +1,18 @@
 $(document).ready(() => {
+    highScores();
+    function highScores(){
+        $.get("/api/scores", (data)=>{
+            $("#tags").empty();
+            $("#times").empty();
+            for (let i=0; i<data.length; i++){
+                let tempUser = $("<p>").text(data[i].username);
+                let tempTime =$("<p>").text(data[i].userTimes);
+                $("#tags").prepend(tempUser);
+                $("#times").prepend(tempTime);
+
+            }
+    })
+    }
     let time = 0;
     let userMessage = $("#user-message");
     let timerOn = false;
@@ -30,9 +44,11 @@ $(document).ready(() => {
             console.log(status);
             console.log('data from post: ');
             console.log(data);
+            window.location.href= window.location.href;
     
-        }).then(()=>{
-            time = 0;
+        }).then((data)=>{
+            console.log(',then achieved');
+            window.location.href= window.location.href;
 
         })
         
