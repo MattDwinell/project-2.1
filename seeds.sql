@@ -1,0 +1,6 @@
+CREATE TABLE mazeTimes (
+    id INTEGER(10) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(100) NOT NULL,
+    userTimes TIME(6) NOT NULL,
+    PRIMARY KEY (id)
+);
