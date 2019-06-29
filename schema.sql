@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS maze_db;
+CREATE DATABASE maze_db;
+
+USE maze_db;
