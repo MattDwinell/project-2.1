@@ -1,0 +1,92 @@
+#small-box {
+    position: fixed;
+}
+#win-box{
+    border: 1px solid blue;
+    position: absolute;
+    right: 40%;
+    visibility: hidden;
+}
+#small-box{
+    top: 10vw;
+    left: 20%;
+    width: 65%;
+    height: 66vh;
+    border: 1px solid red;
+}
+#start{
+    color:red;
+    position: relative;
+    top: 10vh;
+    left: 10%;
+    z-index: 1000;
+
+}
+.obstacle-6{
+    border: 2px solid blue;
+    background-color: #1976d2;
+    border-radius: 5px;
+    width: 5%;
+    height: 5vh;
+    top: 5vh;
+    left: 5vh;
+}
+
+#big-box{
+    position: absolute;
+    border: 1px solid black;
+    width: 80%;
+    height: 60vh;
+}
+.obstacle{
+    border: 1px solid blue; 
+    position: absolute;
+   
+
+}
+.obstacle-1{
+    margin-left: 200px;
+    width: 50%;
+    height: 100px;
+    border-radius: 100%;
+    top: 10vh;
+
+}
+.obstacle-2{
+    width: 40%;
+    height: 10vh;
+    bottom: 20vh;
+    margin-top: 30vh;
+    
+
+}
+.obstacle-3{
+    
+    width: 10%;
+    height: 30vh;
+    bottom: 20vh;
+    right: 10%;
+}
+.obstacle-4{
+bottom: 10vh;
+height: 10vh;
+width: 20vh;
+right: 35vh;
+}
+.obstacle-5{
+    right: 40%;
+    bottom: 25vh;
+    width: 5%;
+    height: 5%;
+}
+#goal{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 10vh;
+    right: 5%;
+}
+#user-message{
+    position: absolute;
+ right: 50%;
+}
