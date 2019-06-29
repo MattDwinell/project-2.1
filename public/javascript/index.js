@@ -39,18 +39,13 @@ $(document).ready(() => {
             time: userTime
         }
         console.log(highScore);
+        setTimeout(highScores, 1000);
         $("#win-box").css("visibility", "hidden");
-        $.post('/api/scores', highScore, (data, status)=>{
-            console.log(status);
-            console.log('data from post: ');
-            console.log(data);
-            window.location.href= window.location.href;
-    
-        }).then((data)=>{
-            console.log(',then achieved');
-            window.location.href= window.location.href;
-
+        $.post('/api/scores', highScore, function(data){
+        }).then((res)=>{
+            console.log('hi' + res);
         })
+    
         
     })
 
