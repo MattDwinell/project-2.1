@@ -4,12 +4,17 @@ $(document).ready(() => {
         $.get("/api/scores", (data)=>{
             $("#tags").empty();
             $("#times").empty();
-            for (let i=0; i<data.length; i++){
+            for (let i=0; i<data.length ; i++){
+                if (i<10){
                 let tempUser = $("<p>").text(data[i].username);
                 let tempTime =$("<p>").text(data[i].userTimes);
+                if (i<3){
+                    tempUser.css("color", "#00e676");
+                    tempTime.css("color", "#00e676");
+                }
                 $("#tags").prepend(tempUser);
                 $("#times").prepend(tempTime);
-
+            }
             }
     })
     }
@@ -38,6 +43,8 @@ $(document).ready(() => {
             userName: userTag,
             time: userTime
         }
+        time = 0;
+        $("#timer").text('');
         console.log(highScore);
         setTimeout(highScores, 1000);
         $("#win-box").css("visibility", "hidden");
@@ -68,7 +75,7 @@ $(document).ready(() => {
     function timer(){
         if(!gamePause && start){
         time += .1;
-        $("#timer").text(time.toFixed(2));
+        $("#timer").text('time: ' + time.toFixed(2));
         }
     }
 
@@ -92,7 +99,7 @@ $(document).ready(() => {
         userMessage.text('left the thing!');
         lives --;
         gamePause = true;
-        $("#start").css("visibility", "visible").text(" click me to return to play");
+        $("#start").css("visibility", "visible").text("Keep Trying");
         }
     })
 
@@ -102,14 +109,11 @@ $(document).ready(() => {
             clearInterval(timer);
             console.log(time);
             lives--;
-            if(lives<=0){
-                gameLoss();
-            }
             if (lives <= 0) {
                 gameLoss();
             } else {
-                userMessage.text('you have hit a thing.');
-                $("#start").css("visibility", "visible").text(" Click me to try again");
+                userMessage.text('you have hit a thing. ' + lives + " lives remaining.");
+                $("#start").css("visibility", "visible").text(" Keep Trying");
                 gamePause = true;
             }
         }
@@ -120,18 +124,21 @@ $(document).ready(() => {
         start = false;
         gamePause = true;
         lives = 5;
-        $("#start").css("visibility", "visible").text(" Click me to play again");
+        $("#start").css("visibility", "visible").text(" Play again");
         $("#win-box").css("visibility", "visible");
     }
     function gameLoss() {
         userMessage.text('you lose');
-        $("#start").css("visibility", "visible").text(" Click me to play again");
+        $("#start").css("visibility", "visible").text(" Play again");
         start = false;
         gamePause = true;
+        time = 0;
         lives = 5;
     }
+
+    //animations for moving divs
     anime({
-        targets: '.obstacle-6',
+        targets: ['.obstacle-6', '.obstacle-7'],
         translateX: 650,
         direction: 'alternate',
         loop: true,
