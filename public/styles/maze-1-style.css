@@ -94,10 +94,10 @@ body {
 
 }
 .highscores{
-    margin-top: 10vh;
+    padding-right: 1%;
+    margin-top: 8vw;
     width: 17%;
     float:right;
-    font-family: righteous;
 }
 #top-ten{
     padding-bottom: 2px;

@@ -109,13 +109,10 @@ $(document).ready(() => {
             clearInterval(timer);
             console.log(time);
             lives--;
-            if(lives<=0){
-                gameLoss();
-            }
             if (lives <= 0) {
                 gameLoss();
             } else {
-                userMessage.text('you have hit a thing.');
+                userMessage.text('you have hit a thing. ' + lives + " lives remaining.");
                 $("#start").css("visibility", "visible").text(" Keep Trying");
                 gamePause = true;
             }
@@ -135,6 +132,7 @@ $(document).ready(() => {
         $("#start").css("visibility", "visible").text(" Play again");
         start = false;
         gamePause = true;
+        time = 0;
         lives = 5;
     }
 
