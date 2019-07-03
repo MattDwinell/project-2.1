@@ -58,7 +58,7 @@ function nextLevel(){
     let obstacle7Width = 5;
     let obstacle7Height = 5;
     let obstacle7Bottom = 5;
-    let obstacle7Left = 5 + Math.ceil(Math.random()* 75);
+    let obstacle7Left = 10 + Math.ceil(Math.random()* 50);
     let obstacle8Width = 5;
     let obstacle8Height = 5;
     let obstacle8Bottom = 0;
@@ -87,8 +87,8 @@ function nextLevel(){
     })
 
     //adding animation to obstacles 6 and 7;
-    let randomDistance = Math.ceil(Math.random()* 500);
-    let randomHeight = Math.ceil(Math.random()* 300);
+    let randomDistance = 50 + Math.ceil(Math.random()* 400);
+    let randomHeight = 25 + Math.ceil(Math.random()* 250);
     anime({
         targets: ['.obstacle-6', '.obstacle-7'],
         translateX: randomDistance,
@@ -119,7 +119,8 @@ function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b
         marginTop: ob2t + 'vh',
         width: ob2w + '%',
         height: ob2h + 'vh',
-        bottom: ob2b + 'vh'
+        bottom: ob2b + 'vh',
+        left: Math.ceil(Math.random()*10) + '%'
     });
     this.obstacle3 = $("<p>").addClass('obstacle').css({
         width: ob3w + '%',
