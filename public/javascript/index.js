@@ -62,7 +62,7 @@ function nextLevel(){
     let obstacle8Width = 5;
     let obstacle8Height = 5;
     let obstacle8Bottom = 0;
-    let obstacle8left = 50;
+    let obstacle8left = 30 + Math.ceil(Math.random()* 40);
     // //obstacle 7 stuff
     // .obstacle-7{
     //     border: 2px solid blue;
@@ -83,6 +83,9 @@ function nextLevel(){
 
    // on hover effects  for randomly generated divs
     $(".obstacle").hover(() => {
+
+        //would like to show the div for a second upon hovering, need to look into this more
+        $(this).css("border", "red");
         lifeLost();
     })
 
@@ -221,6 +224,7 @@ function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b
         userMessage.text('dis working').css("visibility", "visible");
         $("#start").css("visibility", "hidden");
         gameStart();
+       
     }
     function timer(){
         if(!gamePause && start){
@@ -300,6 +304,8 @@ function levelWin(){
         gamePause = true;
         time = 0;
         lives = 5;
+        levelsCompleted = 0;
+        nextLevel();
     }
 
     //animations for moving divs
