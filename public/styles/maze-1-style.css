@@ -13,6 +13,9 @@ body {
     background-color: black;
 }
 #timer{
+    text-align: left;
+    visibility: hidden;
+    width: 16%;
     color: #ff5722 ;
     position:absolute;
     right: 50%;

@@ -66,6 +66,7 @@ $(document).ready(() => {
     function runGame() {
        if(!timerOn){
             setInterval(timer, 100);
+            $("#timer").css('visibility', 'visible');
             timerOn = true;
        }
         userMessage.text('dis working').css("visibility", "visible");
