@@ -18,30 +18,69 @@ $(document).ready(() => {
             }
     })
     }
+
+    //code for next level
 function nextLevel(){
+    $("#start").css("visibility", "visible").text(" begin level " + (levelsCompleted + 1));
     $(".obstacle-wrapper").empty();
     let obstacle1Margin = 20 + Math.ceil(Math.random() * 30);
     let obstacle1Width =  10 + Math.ceil(Math.random() * 50);
     let obstacle1Height = 2 + Math.ceil(Math.random() * 20);
     let obstacle1Top = Math.ceil(Math.random() * 20);
-    let tempLevel = new Level (obstacle1Margin, obstacle1Width, obstacle1Height, obstacle1Top);
-    $(".obstacle-wrapper").append(tempLevel.obstacle1);
- //attrs to send in:
-//  width: 50%;
-//  height: 100px;
-//  border-radius: 100%;
-//  top: 10vh;
+    let obstacle2Top = 10 + Math.ceil(Math.random()*35);
+    let obstacle2Width = 5 + Math.ceil(Math.random() * 50);
+    let obstacle2Height = 5 + Math.ceil(Math.random()* 15);
+    let obstacle2Bottom = 10 + Math.ceil(Math.random()*20);
+    let obstacle3Width = 5+ Math.ceil(Math.random()*10);
+    let obstacle3Height = 10 + Math.ceil(Math.random()*30);
+    let obstacle3Bottom = 12 + Math.ceil(Math.random()*20);
+    let obstacle3Right =  Math.ceil(Math.random()* 25);
+    let obstacle4Bottom = 8 + Math.ceil(Math.random()* 10);
+    let obstacle4Height = 5 + Math.ceil(Math.random()* 10);
+    let obstacle4Width = 15 + Math.ceil(Math.random()*10);
+    let obstacle4Right = 10 + Math.ceil(Math.random()*35);
+    //obstacle 4 stuff
+    // .obstacle-4{
+    //     bottom: 10vh;
+    //     height: 10vh;
+    //     width: 20vh;
+    //     right: 35vh;
+    //     }
+
+
+    let tempLevel = new Level (obstacle1Margin, obstacle1Width, obstacle1Height, obstacle1Top, obstacle2Top, obstacle2Width, obstacle2Height, obstacle2Bottom, obstacle3Width, obstacle3Height, obstacle3Bottom, obstacle3Right, obstacle4Bottom, obstacle4Height, obstacle4Width, obstacle4Right);
+
+    //map through temp level instead of writing out each attribute after testing is done
+    $(".obstacle-wrapper").append(tempLevel.obstacle1, tempLevel.obstacle2, tempLevel.obstacle3, tempLevel.obstacle4);
+
 }
-function Level (ob1m, ob1w, ob1h, ob1t) {
+
+//level creator
+function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b, ob3r, ob4b, ob4h, ob4w, ob4r) {
     this.obstacle1 =  $("<p>").addClass('obstacle').css({
         marginLeft: ob1m + "%",
         width: ob1w + '%',
         height: ob1h + 'vh',
         top: ob1t + 'vh'
     });
-    this.obstacle2 = $("<p>").addClass('obstacle');
-    this.obstacle3 = $("<p>").addClass('obstacle');
-    this.obstacle4 = $("<p>").addClass('obstacle');
+    this.obstacle2 = $("<p>").addClass('obstacle').css({
+        marginTop: ob2t + 'vh',
+        width: ob2w + '%',
+        height: ob2h + 'vh',
+        bottom: ob2b + 'vh'
+    });
+    this.obstacle3 = $("<p>").addClass('obstacle').css({
+        width: ob3w + '%',
+        height: ob3h + 'vh',
+        bottom: ob3b + 'vh',
+        right: ob3r + '%'
+    });
+    this.obstacle4 = $("<p>").addClass('obstacle').css({
+        bottom: ob4b + 'vh',
+        height: ob4h + 'vh',
+        width: ob4w + '%',
+        right: ob4r + '%'
+    });
     this.obstacle5 = $("<p>").addClass('obstacle');
     this.obstacle6 = $("<p>").addClass('obstacle');
     this. obstacle7 = $("<p>").addClass('obstacle');
@@ -124,9 +163,10 @@ function Level (ob1m, ob1w, ob1h, ob1t) {
     $(".obstacle").hover(() => {
         lifeLost();
     })
+
     $("#goal").hover(() => {
         if (start && !gamePause) {
-            gameWin();
+            levelWin();
         }
     })
     $("#small-box").mouseleave(() => {
@@ -153,14 +193,24 @@ function Level (ob1m, ob1w, ob1h, ob1t) {
             }
         }
     }
-
+function levelWin(){
+    levelsCompleted ++;
+    console.log('levels completed:' + levelsCompleted);
+    start = false;
+    gamePause = true;
+    lives = 5;
+    if (levelsCompleted >=5){
+    userMessage.css("visibility", "hidden");
+    gameWin();
+    } else {
+        nextLevel();
+    }
+}
     function gameWin() {
-        userMessage.css("visibility", "hidden");
-        start = false;
-        gamePause = true;
-        lives = 5;
-        levelsCompleted ++;
-        if (levelsCompleted >= 2){
+
+
+        
+        if (levelsCompleted >= 5){
         $("#win-box").css("visibility", "visible");
         } else {
             nextLevel();
