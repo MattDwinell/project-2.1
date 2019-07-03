@@ -6,11 +6,19 @@ $(document).ready(() => {
             $("#times").empty();
             for (let i=0; i<data.length ; i++){
                 if (i<10){
-                let tempUser = $("<p>").text(data[i].username);
+                let tempUser = $("<p>").text((i+1) + '. ' + data[i].username);
                 let tempTime =$("<p>").text(data[i].userTimes);
-                if (i<3){
+                if (i===0){
                     tempUser.css("color", "#00e676");
                     tempTime.css("color", "#00e676");
+                } else if (i===1){
+                    tempUser.css("color", "#69f0ae");
+                    tempTime.css("color", "#69f0ae");
+
+                }else if (i===2){
+                    tempUser.css("color", "#b9f6ca" );
+                    tempTime.css("color", "#b9f6ca");
+
                 }
                 $("#tags").append(tempUser);
                 $("#times").append(tempTime);
@@ -32,31 +40,75 @@ function nextLevel(){
     let obstacle2Height = 5 + Math.ceil(Math.random()* 15);
     let obstacle2Bottom = 10 + Math.ceil(Math.random()*20);
     let obstacle3Width = 5+ Math.ceil(Math.random()*10);
-    let obstacle3Height = 10 + Math.ceil(Math.random()*30);
+    let obstacle3Height = 10 + Math.ceil(Math.random()*28);
     let obstacle3Bottom = 12 + Math.ceil(Math.random()*20);
     let obstacle3Right =  Math.ceil(Math.random()* 25);
     let obstacle4Bottom = 8 + Math.ceil(Math.random()* 10);
     let obstacle4Height = 5 + Math.ceil(Math.random()* 10);
     let obstacle4Width = 15 + Math.ceil(Math.random()*10);
     let obstacle4Right = 10 + Math.ceil(Math.random()*35);
-    //obstacle 4 stuff
-    // .obstacle-4{
-    //     bottom: 10vh;
-    //     height: 10vh;
-    //     width: 20vh;
-    //     right: 35vh;
-    //     }
+    let obstacle5Right = 10 + Math.floor(Math.random()*40);
+    let obstacle5Bottom = 20 + Math.ceil(Math.random()*10);
+    let obstacle5Width = 3 + Math.ceil(Math.random()*5);
+    let obstacle5Height = 3 + Math.ceil(Math.random()*6);
+    let obstacle6Width = 5;
+    let obstacle6Height = 3;
+    let obstacle6Top = 3;
+    let obstacle6Left = 5 + Math.ceil(Math.random()*50);
+    let obstacle7Width = 5;
+    let obstacle7Height = 5;
+    let obstacle7Bottom = 5;
+    let obstacle7Left = 5 + Math.ceil(Math.random()* 75);
+    let obstacle8Width = 5;
+    let obstacle8Height = 5;
+    let obstacle8Bottom = 0;
+    let obstacle8left = 50;
+    // //obstacle 7 stuff
+    // .obstacle-7{
+    //     border: 2px solid blue;
+    //     background-color: #1976d2;
+    //     border-radius: 5px;
+    //     width: 5%;
+    //     height: 5vh;
+    //     bottom: 5vh;
+    //     left: 5vh;
+    
+    // }
 
 
-    let tempLevel = new Level (obstacle1Margin, obstacle1Width, obstacle1Height, obstacle1Top, obstacle2Top, obstacle2Width, obstacle2Height, obstacle2Bottom, obstacle3Width, obstacle3Height, obstacle3Bottom, obstacle3Right, obstacle4Bottom, obstacle4Height, obstacle4Width, obstacle4Right);
+    let tempLevel = new Level (obstacle1Margin, obstacle1Width, obstacle1Height, obstacle1Top, obstacle2Top, obstacle2Width, obstacle2Height, obstacle2Bottom, obstacle3Width, obstacle3Height, obstacle3Bottom, obstacle3Right, obstacle4Bottom, obstacle4Height, obstacle4Width, obstacle4Right, obstacle5Right, obstacle5Bottom, obstacle5Width, obstacle5Height, obstacle6Width, obstacle6Height, obstacle6Top, obstacle6Left, obstacle7Width, obstacle7Height, obstacle7Bottom, obstacle7Left, obstacle8Width, obstacle8Height, obstacle8Bottom, obstacle8left);
 
     //map through temp level instead of writing out each attribute after testing is done
-    $(".obstacle-wrapper").append(tempLevel.obstacle1, tempLevel.obstacle2, tempLevel.obstacle3, tempLevel.obstacle4);
+    $(".obstacle-wrapper").append(tempLevel.obstacle1, tempLevel.obstacle2, tempLevel.obstacle3, tempLevel.obstacle4, tempLevel.obstacle5, tempLevel.obstacle6, tempLevel.obstacle7, tempLevel.obstacle8);
+
+   // on hover effects  for randomly generated divs
+    $(".obstacle").hover(() => {
+        lifeLost();
+    })
+
+    //adding animation to obstacles 6 and 7;
+    let randomDistance = Math.ceil(Math.random()* 500);
+    let randomHeight = Math.ceil(Math.random()* 300);
+    anime({
+        targets: ['.obstacle-6', '.obstacle-7'],
+        translateX: randomDistance,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+      });
+      anime({
+        targets: '.obstacle-8',
+        translateY: -randomHeight,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutSine'
+      });
+
 
 }
 
 //level creator
-function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b, ob3r, ob4b, ob4h, ob4w, ob4r) {
+function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b, ob3r, ob4b, ob4h, ob4w, ob4r, ob5r, ob5b, ob5w, ob5h, ob6w, ob6h, ob6t, ob6l, ob7w, ob7h, ob7b, ob7l, ob8w, ob8h, ob8b, ob8l) {
     this.obstacle1 =  $("<p>").addClass('obstacle').css({
         marginLeft: ob1m + "%",
         width: ob1w + '%',
@@ -81,9 +133,31 @@ function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b
         width: ob4w + '%',
         right: ob4r + '%'
     });
-    this.obstacle5 = $("<p>").addClass('obstacle');
-    this.obstacle6 = $("<p>").addClass('obstacle');
-    this. obstacle7 = $("<p>").addClass('obstacle');
+    this.obstacle5 = $("<p>").addClass('obstacle').css({
+        right: ob5r + '%',
+        bottom: ob5b + 'vh',
+        width: ob5w + '%',
+        height: ob5h + 'vh'
+    });
+    this.obstacle6 = $("<p>").addClass('obstacle obstacle-6').css({
+        width: ob6w + '%',
+        height: ob6h + 'vh',
+        top: ob6t + 'vh',
+        left: ob6l + '%'
+    });
+    this. obstacle7 = $("<p>").addClass('obstacle obstacle-7').css({
+        width: ob7w + '%',
+        height: ob7h + 'vh',
+        bottom: ob7b + 'vh',
+        left: ob7l + '%'
+
+    });
+    this.obstacle8 = $("<p>").addClass('obstacle obstacle-8').css({
+        width: ob8w + '%',
+        height: ob8h + 'vh',
+        left: ob8l + '%',
+        bottom: ob8b + 'vh'
+    })
 
 }
 
@@ -117,6 +191,7 @@ function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b
             time: userTime
         }
         time = 0;
+        levelsCompleted = 0;
         $("#timer").text('');
         console.log(highScore);
         setTimeout(highScores, 1000);
@@ -180,6 +255,7 @@ function Level (ob1m, ob1w, ob1h, ob1t, ob2t, ob2w, ob2h, ob2b, ob3w, ob3h, ob3b
 
 
     function lifeLost() {
+        console.log(start , gamePause);
         if (start && !gamePause) {
             clearInterval(timer);
             console.log(time);
