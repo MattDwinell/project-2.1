@@ -12,8 +12,8 @@ $(document).ready(() => {
                     tempUser.css("color", "#00e676");
                     tempTime.css("color", "#00e676");
                 }
-                $("#tags").prepend(tempUser);
-                $("#times").prepend(tempTime);
+                $("#tags").append(tempUser);
+                $("#times").append(tempTime);
             }
             }
     })
