@@ -36,6 +36,8 @@ $(document).ready(() => {
     //user entering tag on game win
     $("#submit").on("click", (event)=>{
         event.preventDefault();
+        $("#start").css("visibility", "visible").text(" Play again");
+        $("#timer").css('visibility', 'hidden');
         let userTag = $("#user-tag").val();
         let userTime = time.toFixed(2);
         
@@ -125,7 +127,6 @@ $(document).ready(() => {
         start = false;
         gamePause = true;
         lives = 5;
-        $("#start").css("visibility", "visible").text(" Play again");
         $("#win-box").css("visibility", "visible");
     }
     function gameLoss() {
