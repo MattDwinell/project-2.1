@@ -123,6 +123,10 @@ body {
     bottom: 20vh;
     right: 10%;
 }
+.obstacle-8{
+    background-color: #1976d2;
+    border-radius: 5px;
+}
 .obstacle-4{
 bottom: 10vh;
 height: 10vh;
