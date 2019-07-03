@@ -14,7 +14,8 @@ module.exports = function(app) {
        let {userName, time} = request.body;
         User.create({
             username: userName,
-            userTimes: time
+            userTimes: time,
+            order: sequelize.literal("userTimes ASC")
         });
     });
 };
