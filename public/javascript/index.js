@@ -18,6 +18,38 @@ $(document).ready(() => {
             }
     })
     }
+function nextLevel(){
+    $(".obstacle-wrapper").empty();
+    let obstacle1Margin = 20 + Math.ceil(Math.random() * 30);
+    let obstacle1Width =  10 + Math.ceil(Math.random() * 50);
+    let obstacle1Height = 2 + Math.ceil(Math.random() * 20);
+    let obstacle1Top = Math.ceil(Math.random() * 20);
+    let tempLevel = new Level (obstacle1Margin, obstacle1Width, obstacle1Height, obstacle1Top);
+    $(".obstacle-wrapper").append(tempLevel.obstacle1);
+ //attrs to send in:
+//  width: 50%;
+//  height: 100px;
+//  border-radius: 100%;
+//  top: 10vh;
+}
+function Level (ob1m, ob1w, ob1h, ob1t) {
+    this.obstacle1 =  $("<p>").addClass('obstacle').css({
+        marginLeft: ob1m + "%",
+        width: ob1w + '%',
+        height: ob1h + 'vh',
+        top: ob1t + 'vh'
+    });
+    this.obstacle2 = $("<p>").addClass('obstacle');
+    this.obstacle3 = $("<p>").addClass('obstacle');
+    this.obstacle4 = $("<p>").addClass('obstacle');
+    this.obstacle5 = $("<p>").addClass('obstacle');
+    this.obstacle6 = $("<p>").addClass('obstacle');
+    this. obstacle7 = $("<p>").addClass('obstacle');
+
+}
+
+
+    let levelsCompleted = 0;
     let time = 0;
     let userMessage = $("#user-message");
     let timerOn = false;
@@ -127,7 +159,12 @@ $(document).ready(() => {
         start = false;
         gamePause = true;
         lives = 5;
+        levelsCompleted ++;
+        if (levelsCompleted >= 2){
         $("#win-box").css("visibility", "visible");
+        } else {
+            nextLevel();
+        }
     }
     function gameLoss() {
         userMessage.text('you lose');

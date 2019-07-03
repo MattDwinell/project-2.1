@@ -75,7 +75,7 @@ body {
 
 
 .obstacle{
-    /* border: 1px solid blue;  */
+    border: 1px solid blue; 
     position: absolute;
    
 
