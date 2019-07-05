@@ -1,14 +1,19 @@
 var Sequelize = require("sequelize");
+var config = require(__dirname + "./config.json")[env];
+var db = {};
 
-var sequelize = new Sequelize(process.env.JAWSDB_URL || "maze_db", "root", "RCJh2014!", {
-    host: "localhost",
-    port: 3306,
-    dialect: "mysql",
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-    }
-});
+if (config.use_env_variable) {
+    var sequelize = new Sequelize(proces.env[config.use_env_variable]);
+} else {
+    var sequelize = new Sequelize(
+        config.database,
+        config.username,
+        config.password,
+        config
+    );
+};
 
-module.exports = sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;
