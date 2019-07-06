@@ -1,0 +1,289 @@
+body {
+    background-color: black;
+    font-family: 'Righteous' , cursive;
+}
+main {
+    float: left;
+    margin: 0;
+}
+#mainGame { 
+    font-family: 'Righteous' , cursive;
+    width: 1000px;
+    height: 700px;
+    background-color: black;
+    position: relative;
+    float: left;
+    border: 1px solid #00e676;
+    float: left;
+    margin-left: 120px;
+    border-radius: 5%;
+
+}
+.mazeLine {
+    position: absolute;
+    border: none;
+    cursor: none;
+    border-top: 1px solid;
+    
+}
+#one {
+    width: 400px;
+    height: 10px;
+    top: 175px;
+}
+#two {
+    width: 200px;
+    height: 10px;
+    top: 350px;
+    left: 100px;
+    
+}
+#three {
+    width: 150px;
+    height: 10px;
+    top: 525px;   
+}
+#four {
+    width: 200px;
+    height: 10px;
+    top: 175px;
+    right: 100px;
+}
+#five {
+    width: 400px;
+    height: 10px;
+    top: 350px;
+    left: 400px;
+}
+#six {
+    width: 500px;
+    height: 10px;
+    top: 525px;
+    left: 250px;
+}
+#seven {
+    width: 150px;
+    height: 10px;
+    top: 525px;
+    right: 0px;
+}
+#eight {
+    width: 10px;
+    height: 100px;
+    bottom: 0px;
+    left: 500px;
+}
+#start {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    top: 50px;
+    left: 20px;
+    border: 2px solid blue;
+    background-color: #1976d2;
+    border-radius: 5px;
+    color: #00e676;
+}
+#finish {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid blue;
+    background-color: #1976d2;
+    border-radius: 5px;
+    color: #00e676;
+}
+#life {
+    position: absolute;
+    background-color: blue;
+    top: 0px;
+    right: 5px;
+}
+#gameOver {
+
+    width: 1000px;
+    height: 700px;
+    text-align: center;
+    margin: auto; 
+    color: #00FF2A; 
+    border: #00e676 3px solid;
+    border-radius: 5%;
+}
+#erbox1 {
+    width:200px;
+    height: 115px;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 60px;
+    right: 0;
+}
+#erbox2 {
+    width: 80px;
+    height: 50px;
+    background-color: #00FF2A;
+    position: absolute;
+    bottom: 175px;
+    right: 0px;
+    border-radius: 50%;
+}
+#erbox3 {
+    width: 200px;
+    height: 165px;
+    background-color: #00FF2A;
+    position: absolute;
+    top: 360px;
+    left: 0px;
+    border-radius: 50%;
+}
+#erbox4 {
+    position: absolute;
+    width: 70px;
+    height: 65px;
+    background-color: #00FF2A;
+    top: 185px;
+    left: 0px;
+    border-radius: 50%;
+    border: 1px solid;
+}
+#erbox5 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: 80px;
+    border-radius: 50%;
+}
+.fireball {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#ERtimer {
+    color: #ff5722 ;
+    width: max-content;
+    margin: 3vh auto 3vh auto;
+    border: 1px solid #bf360c;
+    border-radius: 2px;
+    padding: 3px;
+    font-size: 3vh;
+    visibility: hidden;
+}
+#ERuser-message{ 
+    
+    
+    color: #00e676;
+    border: 1px solid #00e676;
+    border-radius: 2px;
+    padding: 3px;
+    width: max-content;
+    padding: 5px;
+    text-align: center;
+    margin: 2vh auto 2vh auto;
+   
+}
+
+
+.highscores {
+    color: white;
+    float: right;
+  
+    
+}
+#top-ten {
+    border-bottom: #00e676 solid 2px;
+    padding-bottom: 20px;
+    width: 250px;
+    margin-right: 80px;
+    
+}
+#tags {
+    float: left;
+    margin: 0;
+}
+#times1 {
+    float: right;
+    margin: 0;
+}
+#try-again {
+ 
+    font-size: 40px;
+    border: 2px solid blue;
+    background-color: #1976d2;
+    color: #00e676;
+    margin-top: 50px;
+    border-radius: 10%;
+}
+#ERgameDone {
+   
+    font-size: 60px;
+    text-align: center;
+    margin-top: 200px;
+}
+#wave {
+    position: absolute;
+    height: 24px;
+    width: 20px;
+    bottom: 242px;
+    left: 70px;  
+    z-index: 1;
+}
+.wave {
+    width: 100%;
+    height: 100%;
+}
+#saiyan {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 225px;
+    left: 10px;
+    z-index: 1;
+} 
+.saiyan {
+    width: 100%;
+    height: 100%
+}
+#trap1 {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    opacity: 0;
+    top: 360px;
+    right: 0;
+    border: #00FF2A 1px solid;
+}
+#trap2 {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    border: #00FF2A 1px solid;
+    top: 360px;
+    left: 0 ;
+    opacity: 0;
+}
+#ERwinner {
+    float:left;
+    text-align: center;
+    color: #00e676;
+    width: 110vh;
+    height: 80vh;
+    margin: 0;
+    border: #00e676 3px solid;
+    border-radius: 5vh;
+}
+.win {
+    margin-top: 20vh;
+}
+#buttonMaze1 {font-size: 40px;
+          border: 2px solid blue;
+          background-color: #1976d2;
+          color: #00e676;
+          margin-top: 50px;
+          border-radius: 10%; }

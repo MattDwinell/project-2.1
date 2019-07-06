@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Maze</title>
+  <link href="../styles/maze2.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div id="ERuser-message"> Welcome to the amaze-ing project. Press Start to Begin!</div>
+      <div id="ERtimer"></div>
+      <main>
+        <div id="mainGame">
+          <div id="one" class="mazeLine"></div>
+          <div id="two" class="mazeLine"></div>
+          <div id="three" class="mazeLine"></div>
+          <div id="four" class="mazeLine"></div>
+          <div id="five" class="mazeLine"></div>
+          <div id="six" class="mazeLine"></div>
+          <div id="seven" class="mazeLine"></div>
+          <div id="eight" class="mazeLine"></div>
+          <button id="start">START</button>
+          <div id="finish">FINISH</div>
+          <div id="life"></div>
+          <div id="saiyan" class="power"><img class="saiyan" src="../img/goku.gif"></div>
+          <div id="wave" class="power"><img class="wave" src="../img/wave.gif"></div>
+          <div id="erbox1" class="movingObjects"><img class="fireball" src="../img/fireball.gif"></div>
+          <div id="erbox2" class="movingObjects"><img class="fireball" src="../img/fireball.gif"></div>
+          <div id="erbox3" class="movingObjects"><img class="fireball" src="../img/fireball.gif"></div>
+          <div id="erbox4" class="movingObjects"><img class="fireball" src="../img/fireball.gif"></div>
+          <div id="erbox5" class="movingObjects"><img class="fireball" src="../img/fireball.gif"></div>
+          <div id="trap1" class="trap"></div>
+          <div id="trap2" class="trap"></div>
+        </div>
+      </main>
+      <div id="ERwinner">
+        <h1 class="win">You Won!!</h1>
+        <a href="maze.html">
+          <button id="buttonMaze1">Try a different Maze!</button></a>
+      </div>
+      <div id="gameOver">
+        <p id="ERgameDone">GAME-OVER</p>
+        <button id="try-again">Try Again!</button>
+      </div>
+      <div class="highscores">
+        <p id='top-ten'> Top Ten</p> <br>
+        <div id="tags"> Tags
+          <div> example</div>
+        </div>
+        <div id="times1">Time
+          <div>4.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../javascript/maze2.js" type="text/javascript"></script>
+  <script src="anime.js" type="text/javascript"></script>
+</body>
+
+</html>
