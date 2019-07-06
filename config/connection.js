@@ -24,4 +24,6 @@ if (config.use_env_variable) {
     }
 });*/
 
+//original use_env_variable from config.json: "edo4plet5mhv93s3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"
+
 module.exports = sequelize;
