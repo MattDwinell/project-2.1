@@ -159,4 +159,14 @@ right: 35vh;
     font-family: righteous, cursive;
     src: url('https://fonts.googleapis.com/css?family=Righteous');
   }
+  .ERmaze1 {
+    width: 20vh;
+   
+}
 
+#ERmaze {
+    width: 15vh;
+    position: absolute;
+    bottom: 15vh;
+    left: 5vh;
+}
